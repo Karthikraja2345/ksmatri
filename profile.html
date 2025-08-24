@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile - KS Matrimony</title>
+    <!-- Link to the NEW profile-specific CSS -->
+    <link rel="stylesheet" href="./assets/css/profile.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Reusing the same header from the dashboard for consistency -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="./dashboard.html" class="logo">KS Matrimony</a>
+            <nav class="main-nav">
+                <a href="./dashboard.html" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">Matches</a>
+                <a href="#" class="nav-link">Messages</a>
+                <a href="#" class="nav-link">Search</a>
+            </nav>
+           <!-- Replace the old <div class="user-actions">...</div> with this in ALL 5 files -->
+            <div class="user-actions">
+                <button class="icon-btn"><i class='bx bxs-bell'></i><span class="notification-dot"></span></button>
+                
+                <!-- New Dropdown Structure -->
+                <div class="profile-dropdown">
+                    <div class="profile-summary-clickable">
+                        <img src="./assets/images/profile-placeholder.jpg" alt="User Profile" class="profile-pic">
+                        <span class="profile-name">Loading...</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="edit-profile.html" class="dropdown-item">
+                            <i class='bx bxs-user-circle'></i> Edit Profile
+                        </a>
+                        <a href="#" id="logout-link" class="dropdown-item">
+                            <i class='bx bxs-log-out'></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-page-container">
+        <div class="profile-grid">
+            
+            <!-- ===== Main Profile Details (Left Column) ===== -->
+            <main class="profile-main">
+                <!-- Profile Header Card -->
+                <header class="profile-header">
+                    <div class="profile-banner">
+                        <img src="./assets/images/profile-banner.jpg" alt="Profile Banner">
+                    </div>
+                    <div class="profile-summary">
+                        <div class="profile-picture-wrapper">
+                            <img src="./assets/images/profile2.jpg" alt="Priya Sharma" class="profile-picture">
+                            <div class="premium-badge"><i class='bx bxs-star'></i> Premium Member</div>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="profile-name">Priya Sharma</h1>
+                            <p class="profile-meta">28 Years, 5' 4", Hindu, Mumbai</p>
+                            <p class="profile-occupation"><i class='bx bxs-briefcase'></i> Software Engineer at Google</p>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="action-btn btn-like"><i class='bx bxs-heart'></i> Send Interest</button>
+                            <button class="action-btn btn-message"><i class='bx bxs-message-dots'></i> Send Message Request</button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Tabbed Details Section -->
+                <section class="profile-details-card">
+                    <nav class="profile-tabs">
+                        <button class="tab-link active" data-tab="about">About Priya</button>
+                        <button class="tab-link" data-tab="family">Family Details</button>
+                        <button class="tab-link" data-tab="career">Education & Career</button>
+                        <button class="tab-link" data-tab="documents">Documents</button>
+                    </nav>
+
+                    <div class="tab-content-wrapper">
+                        <!-- About Tab -->
+                        <div class="tab-content active" id="about">
+                            <p class="about-me-text">
+                                "I am a fun-loving, ambitious, and down-to-earth person. I enjoy exploring new cafes, trekking on weekends, and unwinding with a good book. Looking for a partner who is genuine, has a great sense of humor, and is passionate about his career."
+                            </p>
+                            <div class="details-grid">
+                                <div class="detail-item"><span>Mother Tongue</span><strong>Marathi</strong></div>
+                                <div class="detail-item"><span>Marital Status</span><strong>Never Married</strong></div>
+                                <div class="detail-item"><span>Diet</span><strong>Vegetarian</strong></div>
+                                <div class="detail-item"><span>Smokes</span><strong>No</strong></div>
+                                <div class="detail-item"><span>Drinks</span><strong>Occasionally</strong></div>
+                                <div class="detail-item"><span>Height</span><strong>5' 4" (163 cm)</strong></div>
+                            </div>
+                        </div>
+                        <!-- Family Tab (Initially hidden) -->
+                        <div class="tab-content" id="family">
+                             <div class="details-grid">
+                                <div class="detail-item"><span>Father's Occupation</span><strong>Businessman</strong></div>
+                                <div class="detail-item"><span>Mother's Occupation</span><strong>Homemaker</strong></div>
+                                <div class="detail-item"><span>Siblings</span><strong>1 Elder Brother (Married)</strong></div>
+                                <div class="detail-item"><span>Family Values</span><strong>Modern</strong></div>
+                                <div class="detail-item"><span>Family Type</span><strong>Nuclear Family</strong></div>
+                                <div class="detail-item"><span>Based In</span><strong>Mumbai, India</strong></div>
+                            </div>
+                        </div>
+                        <!-- Career Tab (Initially hidden) -->
+                        <div class="tab-content" id="career">
+                             <div class="details-grid">
+                                <div class="detail-item"><span>Highest Education</span><strong>Master's in Computer Science</strong></div>
+                                <div class="detail-item"><span>University</span><strong>IIT Bombay</strong></div>
+                                <div class="detail-item"><span>Occupation</span><strong>Software Engineer</strong></div>
+                                <div class="detail-item"><span>Company</span><strong>Google Inc.</strong></div>
+                                <div class="detail-item"><span>Annual Income</span><strong>₹ 40 Lakhs+</strong></div>
+                            </div>
+                        </div>
+                         <!-- Documents Tab (Initially hidden) -->
+                        <div class="tab-content" id="documents">
+                            <ul class="document-list">
+                                <li><i class='bx bxs-check-shield'></i><span>ID Proof</span><strong class="verified">Verified</strong></li>
+                                <li><i class='bx bxs-check-shield'></i><span>Age Proof</span><strong class="verified">Verified</strong></li>
+                                <li><i class='bx bxs-x-shield'></i><span>Marriage Affidavit</span><strong class="pending">Pending Verification</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ===== Partner Preferences (Right Sidebar) ===== -->
+            <aside class="partner-preferences">
+                <div class="preferences-card">
+                    <h3><i class='bx bx-search-alt'></i> Looking For...</h3>
+                    <div class="details-grid">
+                        <div class="detail-item"><span>Age</span><strong>28 to 32 Years</strong></div>
+                        <div class="detail-item"><span>Height</span><strong>5' 9" to 6' 2"</strong></div>
+                        <div class="detail-item"><span>Marital Status</span><strong>Never Married</strong></div>
+                        <div class="detail-item"><span>Religion</span><strong>Hindu</strong></div>
+                        <div class="detail-item"><span>Mother Tongue</span><strong>Marathi, Hindi, English</strong></div>
+                        <div class="detail-item"><span>Education</span><strong>Masters or higher</strong></div>
+                        <div class="detail-item"><span>Location</span><strong>Mumbai, Pune</strong></div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- Your Custom JavaScript (Module type is crucial) -->
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>

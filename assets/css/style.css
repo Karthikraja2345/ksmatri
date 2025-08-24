@@ -1,0 +1,307 @@
+/* --- 1. Global Setup & Variables --- */
+@import url('global.css');
+/* --- 2. Full-Page Container & Background --- */
+.auth-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 3rem 1rem;
+    background-image: 
+        linear-gradient(45deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.85)), 
+        url('../images/banner-placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* --- 3. Form Wrapper & Header --- */
+.form-wrapper {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-color);
+    /* Subtle animation on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: var(--text-muted-color);
+    font-size: 1.1rem;
+}
+
+/* --- 4. Form Layout & Elements --- */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label,
+.form-group-upload label {
+    font-size: 0.875rem;
+    color: var(--text-muted-color);
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+select {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.3);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239CA3AF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.7rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* --- 5. Buttons & Links --- */
+.btn {
+    padding: 0.9rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(167, 139, 250, 0.2);
+}
+
+.btn-google {
+    background-color: #F9FAFB;
+    color: #111827;
+    border: 1px solid var(--border-color);
+}
+
+.btn-google:hover {
+    background-color: #E5E7EB;
+}
+
+.btn-google img {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- 6. Special Form Elements & Footer --- */
+.separator {
+    text-align: center;
+    color: var(--text-muted-color);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.form-group-upload .file-input {
+    font-size: 0.9rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--text-muted-color);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-muted-color);
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- 7. Responsive Design --- */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 2rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .logo-title {
+        font-size: 2rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-page-container {
+        padding: 1rem;
+        align-items: flex-start; /* For small screens, align form to top */
+    }
+    .form-wrapper {
+        padding: 1.5rem;
+    }
+}
+
+/* --- 8. Additions for Login Page --- */
+.forgot-password {
+    text-align: right;
+    margin-top: -0.75rem; /* Pulls it up slightly to reduce gap */
+    margin-bottom: 0.5rem;
+}
+
+.forgot-password a {
+    color: var(--text-muted-color);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* --- 9. Additions for Interactive Feedback --- */
+
+/* Loader Animation */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px; /* Half of height */
+    margin-left: -10px; /* Half of width */
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Button Loading State */
+.btn {
+    position: relative; /* Needed for absolute positioning of the loader */
+}
+
+.btn.loading span {
+    visibility: hidden; /* Hide the button text */
+}
+
+.btn.loading {
+    cursor: not-allowed;
+}
+
+/* Message Display Box */
+.message-display {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease;
+}
+
+.message-display.success {
+    background-color: rgba(52, 211, 153, 0.2); /* success-color with opacity */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+    display: block;
+}
+
+.message-display.error {
+    background-color: rgba(248, 113, 113, 0.2); /* error-color with opacity */
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    display: block;
+}

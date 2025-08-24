@@ -1,0 +1,30 @@
+/* /assets/css/global.css */
+
+/* --- Global Setup & Variables --- */
+:root {
+    --primary-color: #A78BFA;      /* A softer, elegant purple */
+    --primary-hover: #9778e6;      /* A slightly darker purple for hover */
+    --background-color: #111827;   /* A deep, cool dark blue/gray */
+    --surface-color: #1F2937;      /* A slightly lighter surface for the form */
+    --text-color: #F9FAFB;         /* Off-white for readability */
+    --text-muted-color: #9CA3AF;   /* Gray for labels and secondary text */
+    --border-color: #4B5563;       /* A subtle border color */
+    --error-color: #F87171;        /* A soft red for errors */
+    --success-color: #34D399;      /* A nice green for "like" */
+    
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Playfair Display', serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}

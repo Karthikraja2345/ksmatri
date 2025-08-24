@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - KS Matrimony</title>
+    <link rel="stylesheet" href="./assets/css/edit-profile.css"> <!-- New CSS file -->
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Reusing the main header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="./dashboard.html" class="logo">KS Matrimony</a>
+            <nav class="main-nav">
+                <!-- Links here -->
+            </nav>
+           <!-- Replace the old <div class="user-actions">...</div> with this in ALL 5 files -->
+            <div class="user-actions">
+                <button class="icon-btn"><i class='bx bxs-bell'></i><span class="notification-dot"></span></button>
+                
+                <!-- New Dropdown Structure -->
+                <div class="profile-dropdown">
+                    <div class="profile-summary-clickable">
+                        <img src="./assets/images/profile-placeholder.jpg" alt="User Profile" class="profile-pic">
+                        <span class="profile-name">Loading...</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="edit-profile.html" class="dropdown-item">
+                            <i class='bx bxs-user-circle'></i> Edit Profile
+                        </a>
+                        <a href="#" id="logout-link" class="dropdown-item">
+                            <i class='bx bxs-log-out'></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="edit-profile-container">
+        <h1>Edit Your Profile</h1>
+        <p>Keep your profile up-to-date to get the best matches.</p>
+
+        <form id="edit-profile-form" class="profile-form">
+            <!-- Section 1: Personal Details -->
+            <section class="form-section">
+                <h2><i class='bx bxs-user-detail'></i> Personal Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" disabled> <!-- Name is usually not editable -->
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" disabled> <!-- Email is not editable -->
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (in cm)</label>
+                        <input type="number" id="height" name="height" placeholder="e.g., 175">
+                    </div>
+                    <div class="form-group">
+                        <label for="religion">Religion / Caste</label>
+                        <input type="text" id="religion" name="religion" placeholder="e.g., Hindu, Brahmin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="aboutMe">About Me (Bio)</label>
+                    <textarea id="aboutMe" name="aboutMe" rows="4" placeholder="Write a short summary about yourself..."></textarea>
+                </div>
+            </section>
+
+            <!-- Section 2: Education & Career -->
+            <section class="form-section">
+                <h2><i class='bx bxs-graduation'></i> Education & Career</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="education">Highest Education</label>
+                        <input type="text" id="education" name="education" placeholder="e.g., Master's in Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">Occupation</label>
+                        <input type="text" id="occupation" name="occupation" placeholder="e.g., Software Engineer">
+                    </div>
+                </div>
+            </section>
+            
+            <div id="message-display" class="message-display"></div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-save">
+                    <span>Save Changes</span>
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

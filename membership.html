@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans - KS Matrimony</title>
+    <!-- Link to the NEW membership-specific CSS -->
+    <link rel="stylesheet" href="./assets/css/membership.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Reusing the same header from the dashboard -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="./dashboard.html" class="logo">KS Matrimony</a>
+            <nav class="main-nav">
+                <a href="./dashboard.html" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link">Matches</a>
+                <a href="#" class="nav-link">Messages</a>
+                <a href="#" class="nav-link">Search</a>
+            </nav>
+            <!-- Replace the old <div class="user-actions">...</div> with this in ALL 5 files -->
+            <div class="user-actions">
+                <button class="icon-btn"><i class='bx bxs-bell'></i><span class="notification-dot"></span></button>
+                
+                <!-- New Dropdown Structure -->
+                <div class="profile-dropdown">
+                    <div class="profile-summary-clickable">
+                        <img src="./assets/images/profile-placeholder.jpg" alt="User Profile" class="profile-pic">
+                        <span class="profile-name">Loading...</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="edit-profile.html" class="dropdown-item">
+                            <i class='bx bxs-user-circle'></i> Edit Profile
+                        </a>
+                        <a href="#" id="logout-link" class="dropdown-item">
+                            <i class='bx bxs-log-out'></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="membership-page-container">
+        <div class="page-header">
+            <h1>Upgrade Your Membership</h1>
+            <p>Choose a plan that suits your needs and unlock exclusive features to find your perfect match faster.</p>
+        </div>
+
+        <div class="pricing-plans-container">
+            <!-- Plan 1: Basic / Free -->
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">₹0 <span>/ forever</span></div>
+                <p class="plan-description">Your current free plan. Get started and browse profiles.</p>
+                <ul class="features-list">
+                    <li><i class='bx bx-check'></i> Browse Profiles</li>
+                    <li><i class='bx bx-check'></i> Send Limited Interests</li>
+                    <li><i class='bx bx-x'></i> View Contact Details</li>
+                    <li><i class='bx bx-x'></i> Send Unlimited Messages</li>
+                    <li><i class='bx bx-x'></i> Priority in Search Results</li>
+                    <li><i class='bx bx-x'></i> Use Advanced Filters</li>
+                </ul>
+                <button class="btn btn-current" disabled>Your Current Plan</button>
+            </div>
+
+            <!-- Plan 2: Premium (Highlighted) -->
+            <div class="pricing-card highlighted">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Premium</h3>
+                <div class="price">₹1499 <span>/ 3 months</span></div>
+                <p class="plan-description">The best value for serious members. Unlock all key features.</p>
+                <ul class="features-list">
+                    <li><i class='bx bx-check'></i> Browse Profiles</li>
+                    <li><i class='bx bx-check'></i> Send Unlimited Interests</li>
+                    <li><i class='bx bx-check'></i> View Contact Details</li>
+                    <li><i class='bx bx-check'></i> Send Unlimited Messages</li>
+                    <li><i class='bx bx-x'></i> Priority in Search Results</li>
+                    <li><i class='bx bx-x'></i> Use Advanced Filters</li>
+                </ul>
+                <button class="btn btn-primary">Choose Premium</button>
+            </div>
+
+            <!-- Plan 3: Premium Plus -->
+            <div class="pricing-card">
+                <h3>Premium Plus</h3>
+                <div class="price">₹2999 <span>/ 6 months</span></div>
+                <p class="plan-description">Get the ultimate advantage with top placement and all features.</p>
+                 <ul class="features-list">
+                    <li><i class='bx bx-check'></i> Browse Profiles</li>
+                    <li><i class='bx bx-check'></i> Send Unlimited Interests</li>
+                    <li><i class='bx bx-check'></i> View Contact Details</li>
+                    <li><i class='bx bx-check'></i> Send Unlimited Messages</li>
+                    <li><i class='bx bx-check'></i> Priority in Search Results</li>
+                    <li><i class='bx bx-check'></i> Use Advanced Filters</li>
+                </ul>
+                <button class="btn btn-secondary">Choose Premium Plus</button>
+            </div>
+        </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>Is my payment information secure?</summary>
+                    <p>Absolutely. All payments are processed through Stripe, a certified PCI Service Provider Level 1. We do not store any of your credit card information on our servers.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Can I cancel my membership at any time?</summary>
+                    <p>Yes, you can cancel your subscription at any time from your account settings. You will retain your premium benefits until the end of your current billing period.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What happens after I make the payment?</summary>
+                    <p>Your account will be upgraded instantly. You will have immediate access to all the premium features included in your chosen plan. A confirmation email and receipt will be sent to your registered email address.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- Your Custom JavaScript (Module type is crucial) -->
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>

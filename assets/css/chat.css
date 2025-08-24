@@ -1,0 +1,366 @@
+/* /assets/css/chat.css */
+@import url('global.css');
+/* Re-import dashboard styles for the shared header */
+@import url('dashboard.css'); 
+
+/* --- 1. Main Chat Container Layout --- */
+.chat-container {
+    display: grid;
+    grid-template-columns: 350px 1fr 300px; /* Conversations | Window | Profile */
+    height: calc(100vh - 70px); /* Full viewport height minus header */
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+}
+
+/* --- 2. Conversations Sidebar (Column 1) --- */
+.conversations-sidebar {
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h3 {
+    font-family: var(--font-display);
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    position: relative;
+}
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted-color);
+}
+.search-box input {
+    width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    color: var(--text-color);
+}
+
+.conversations-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.conversation-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.conversation-item:hover {
+    background-color: #2a3647;
+}
+
+.conversation-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.conversation-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.conversation-details {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.conversation-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.conversation-header .name {
+    font-weight: 500;
+}
+.conversation-item.active .conversation-header .name {
+    color: #fff;
+}
+
+.conversation-header .time {
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+}
+.conversation-item.active .conversation-header .time {
+    color: #e0e0e0;
+}
+
+.conversation-snippet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.last-message {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.conversation-item.active .last-message {
+    color: #e0e0e0;
+}
+
+.unread-count {
+    background-color: var(--success-color);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.conversation-item.active .unread-count {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+/* --- 3. Chat Window (Column 2) --- */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.contact-info img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.contact-info div { display: flex; flex-direction: column; }
+.contact-info .name { font-weight: 500; font-size: 1.1rem; }
+.contact-info .status { font-size: 0.8rem; color: var(--text-muted-color); }
+.contact-info .status.online::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+
+.message-area {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://www.transparenttextures.com/patterns/subtle-dark-matter.png');
+}
+
+.message {
+    display: flex;
+    max-width: 70%;
+}
+
+.message.sent {
+    align-self: flex-end;
+}
+.message.received {
+    align-self: flex-start;
+}
+
+.message-bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+}
+.message-bubble p {
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+}
+.message-bubble .timestamp {
+    font-size: 0.75rem;
+    text-align: right;
+}
+
+
+.message.sent .message-bubble {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+.message.sent .timestamp {
+    color: #e0e0e0;
+}
+
+.message.received .message-bubble {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+.message.received .timestamp {
+    color: var(--text-muted-color);
+}
+
+.message-input-area {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.message-input-area input {
+    flex-grow: 1;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+.message-input-area input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn-send {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-send:hover { background-color: var(--primary-hover); }
+
+/* --- 4. Profile Preview Sidebar (Column 3) --- */
+.profile-preview-sidebar {
+    background-color: var(--surface-color);
+    border-left: 1px solid var(--border-color);
+    padding: 2rem;
+    text-align: center;
+}
+
+.preview-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.preview-card h3 { font-size: 1.5rem; }
+.preview-card .location, .preview-card .occupation {
+    color: var(--text-muted-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.preview-card hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 1.5rem 0;
+}
+
+.shared-interests {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.shared-interests h4 { margin-bottom: 1rem; }
+.shared-interests span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--background-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.btn-view-profile {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.btn-view-profile:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+
+/* --- 5. Responsive Design --- */
+@media (max-width: 1200px) {
+    .chat-container {
+        grid-template-columns: 300px 1fr;
+    }
+    .profile-preview-sidebar {
+        display: none; /* Hide profile preview on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+    .conversations-sidebar {
+        /* This would be hidden by default and shown on a button click in a real app */
+        /* For now, we'll just let it stack */
+        height: auto;
+        border-right: none;
+    }
+     .chat-window {
+        /* This would need to be handled by JS to show one or the other */
+        height: 100vh;
+    }
+}

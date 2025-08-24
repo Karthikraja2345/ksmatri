@@ -1,0 +1,227 @@
+/* /assets/css/membership.css */
+@import url('global.css');
+/* Re-import dashboard styles for the shared header */
+@import url('dashboard.css');
+
+/* --- 1. Page Layout & Header --- */
+.membership-page-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem 1rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- 2. Pricing Plans Container --- */
+.pricing-plans-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+/* --- 3. Pricing Card Styling --- */
+.pricing-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.pricing-card.highlighted {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 20px 30px -10px rgba(167, 139, 250, 0.2);
+}
+
+.pricing-card:not(.highlighted):hover {
+    transform: translateY(-5px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted-color);
+}
+
+.plan-description {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    margin-bottom: 2rem;
+    min-height: 40px;
+}
+
+/* --- 4. Features List --- */
+.features-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.features-list li i {
+    font-size: 1.25rem;
+}
+
+.features-list .bx-check {
+    color: var(--success-color);
+}
+
+.features-list .bx-x {
+    color: var(--border-color);
+}
+
+/* --- 5. Buttons --- */
+.pricing-card .btn {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+.btn-secondary:hover {
+    background-color: var(--surface-color);
+    border-color: var(--primary-color);
+}
+
+.btn-current {
+    background-color: var(--border-color);
+    color: var(--text-muted-color);
+    cursor: not-allowed;
+}
+
+
+/* --- 6. FAQ Section --- */
+.faq-section {
+    max-width: 800px;
+    margin: 4rem auto 0;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-display);
+}
+
+.faq-item details {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.faq-item summary {
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none; /* Removes the default triangle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none; /* Hides marker for Chrome/Safari */
+}
+
+.faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    margin-top: 1rem;
+    color: var(--text-muted-color);
+}
+
+/* --- 7. Responsive Design --- */
+@media (max-width: 992px) {
+    .pricing-plans-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    .pricing-card.highlighted {
+        transform: scale(1); /* Reset scale on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2rem; }
+    .page-header p { font-size: 1rem; }
+}

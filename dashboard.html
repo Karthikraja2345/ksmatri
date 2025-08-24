@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - KS Matrimony</title>
+    <!-- Link to the NEW dashboard-specific CSS -->
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+
+    <!-- Fonts (same as before) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons Library -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo">KS Matrimony</a>
+            <nav class="main-nav">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Matches</a>
+                <a href="./chat.html" class="nav-link">Messages</a>
+                <a href="#" class="nav-link">Search</a>
+            </nav>
+            <!-- Replace the old <div class="user-actions">...</div> with this in ALL 5 files -->
+            <div class="user-actions">
+                <button class="icon-btn"><i class='bx bxs-bell'></i><span class="notification-dot"></span></button>
+                
+                <!-- New Dropdown Structure -->
+                <div class="profile-dropdown">
+                    <div class="profile-summary-clickable">
+                        <img src="./assets/images/profile-placeholder.jpg" alt="User Profile" class="profile-pic">
+                        <span class="profile-name">Loading...</span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="edit-profile.html" class="dropdown-item">
+                            <i class='bx bxs-user-circle'></i> Edit Profile
+                        </a>
+                        <a href="#" id="logout-link" class="dropdown-item">
+                            <i class='bx bxs-log-out'></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- ===== Filter Sidebar ===== -->
+        <aside class="filters-sidebar">
+            <div class="filter-header">
+                <h3><i class='bx bx-filter-alt'></i> Filter Matches</h3>
+            </div>
+            <div class="filter-body">
+                <div class="filter-group">
+                    <h4>Basic Details</h4>
+                    <div class="form-group">
+                        <label>Age Range</label>
+                        <div class="range-inputs">
+                            <input type="number" value="24" min="18">
+                            <span>to</span>
+                            <input type="number" value="32" max="70">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Religion</label>
+                        <input type="text" placeholder="e.g., Hindu, Christian">
+                    </div>
+                </div>
+                
+                <div class="filter-group premium-filter">
+                    <h4><i class='bx bxs-lock-alt'></i> Premium Filters</h4>
+                    <div class="form-group">
+                        <label>Location Radius</label>
+                        <input type="range" min="5" max="500" value="50">
+                        <span class="range-value">50 km</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Education</label>
+                        <select>
+                            <option>Any</option>
+                            <option>Bachelors</option>
+                            <option>Masters</option>
+                            <option>Doctorate</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-apply-filters">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- ===== Main Content: Profiles Grid ===== -->
+        <main class="profiles-main-content">
+            <div class="content-header">
+                <h2>Suggested For You</h2>
+                <div class="sort-options">
+                    <label>Sort By:</label>
+                    <select>
+                        <option>Recently Active</option>
+                        <option>Most Compatible</option>
+                        <option>Newest Members</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Membership Upgrade CTA -->
+            <div class="membership-cta">
+                <div class="cta-icon"><i class='bx bxs-star'></i></div>
+                <div class="cta-text">
+                    <h4>Unlock Premium Benefits</h4>
+                    <p>See who liked you, get unlimited chats, and use advanced filters.</p>
+                </div>
+                <a href="./membership.html" class="btn-upgrade">Upgrade Now</a>
+            </div>
+
+            <div class="profiles-grid">
+                <!-- Profile Card 1 -->
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="./assets/images/profile2.jpg" alt="Profile Photo">
+                        <div class="premium-badge"><i class='bx bxs-star'></i> Premium</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Priya Sharma, 28</h3>
+                        <p class="location"><i class='bx bxs-map'></i> Mumbai, India</p>
+                        <p class="summary">Software Engineer, Hindu</p>
+                        <div class="card-actions">
+                            <button class="action-btn btn-like"><i class='bx bxs-heart'></i> Like</button>
+                            <button class="action-btn btn-shortlist"><i class='bx bxs-playlist-add'></i> Shortlist</button>
+                            <button class="action-btn btn-message" disabled><i class='bx bxs-message-rounded-dots'></i> Message</button>
+                        </div>
+                    </div>
+                    <a href="#" class="view-profile-link">View Full Profile</a>
+                </div>
+                
+                <!-- Add more cards by copy-pasting the one above and changing the details -->
+                <!-- Profile Card 2 -->
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="./assets/images/profile3.jpg" alt="Profile Photo">
+                    </div>
+                    <div class="card-body">
+                        <h3>Anjali Mehta, 26</h3>
+                        <p class="location"><i class='bx bxs-map'></i> Bangalore, India</p>
+                        <p class="summary">Graphic Designer, Sikh</p>
+                        <div class="card-actions">
+                             <button class="action-btn btn-like"><i class='bx bxs-heart'></i> Like</button>
+                            <button class="action-btn btn-shortlist"><i class='bx bxs-playlist-add'></i> Shortlist</button>
+                            <button class="action-btn btn-message" disabled><i class='bx bxs-message-rounded-dots'></i> Message</button>
+                        </div>
+                    </div>
+                    <a href="#" class="view-profile-link">View Full Profile</a>
+                </div>
+                
+                <!-- Profile Card 3 -->
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="./assets/images/profile4.jpg" alt="Profile Photo">
+                    </div>
+                    <div class="card-body">
+                        <h3>Rohan Verma, 31</h3>
+                        <p class="location"><i class='bx bxs-map'></i> Delhi, India</p>
+                        <p class="summary">Doctor, Hindu</p>
+                        <div class="card-actions">
+                             <button class="action-btn btn-like"><i class='bx bxs-heart'></i> Like</button>
+                            <button class="action-btn btn-shortlist"><i class='bx bxs-playlist-add'></i> Shortlist</button>
+                            <button class="action-btn btn-message" disabled><i class='bx bxs-message-rounded-dots'></i> Message</button>
+                        </div>
+                    </div>
+                    <a href="#" class="view-profile-link">View Full Profile</a>
+                </div>
+
+                <!-- Add more cards as needed -->
+
+            </div>
+        </main>
+    </div>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- Your Custom JavaScript (Module type is crucial) -->
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>
